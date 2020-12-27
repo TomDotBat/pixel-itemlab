@@ -13,8 +13,8 @@ function ENT:SetupDataTables()
     self:NetworkVar("String", 1, "Ingredient2")
     self:NetworkVar("String", 2, "Ingredient3")
 
-    self:NetworkVar("Int", 0, "CraftStart")
-    self:NetworkVar("Int", 1, "CraftFinish")
+    self:NetworkVar("Float", 0, "CraftStart")
+    self:NetworkVar("Float", 1, "CraftFinish")
 
     self:NetworkVarNotify("Ingredient1", self.UpdateIngredient)
     self:NetworkVarNotify("Ingredient2", self.UpdateIngredient)
