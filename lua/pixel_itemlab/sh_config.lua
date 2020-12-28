@@ -113,15 +113,17 @@ local meta = FindMetaTable("Player")
 
 function meta:CanUseItemLab(entity)
     if self:GetPos():DistToSqr(entity:GetPos()) > 25000 then return false end --Player is too far away
-
-    local owner = entity:CPPIGetOwner()
+    return true
+    --[[local owner = entity:CPPIGetOwner()
     if not IsValid(owner) then return true end --Not player owned
     if owner == self then return true end --Player is lab owner
 
+    local friends = owner.CPPIGetFriends and owner:CPPIGetFriends() or false
+    if not friends then return false end
 
-    for _, ply in ipairs(owner:CPPIGetFriends()) do
+    for _, ply in ipairs(friends) do
         if ply == self then return true end --Player is friends with lab owner
     end
 
-    return false
+    return false]]--
 end
