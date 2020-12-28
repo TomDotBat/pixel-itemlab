@@ -148,7 +148,7 @@ net.Receive("PIXEL.ItemLab.StartCrafting", function(len, ply)
         finishSound:SetSoundLevel(70)
         finishSound:Play()
 
-        local ent = lab:DropItem("pixel_itemlab_item_" .. (selectedRecipe.item or "crap"))
+        local ent = lab:DropItem("pixel_itemlab_item_" .. (selectedRecipe and selectedRecipe.item or "crap"))
         if ent.Setowning_ent then ent:Setowning_ent(ply) end
         if not isfunction(ent.ItemLabOnCraft) then return end
 
