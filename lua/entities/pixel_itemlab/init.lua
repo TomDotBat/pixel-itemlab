@@ -25,6 +25,14 @@ function ENT:AddIngredient(ingredientId)
 end
 
 function ENT:RemoveIngredient(targetId)
+    if self.RemoveCooldown then return end
+    self.RemoveCooldown = true
+
+    timer.Create("PIXEL.ItemLab.IngredientRemoveCooldown" .. self:EntIndex(), 1, 1, function()
+        if not IsValid(self) then return end
+        self.RemoveCooldown = nil
+    end)
+
     local ingredients = self:GetIngredientIDs()
     table.RemoveByValue(ingredients, targetId)
 
