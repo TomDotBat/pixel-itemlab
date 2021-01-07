@@ -7,11 +7,11 @@ net.Receive("PIXEL.ItemLab.OpenUI", function()
     PIXEL.ItemLab.OpenUI(lab)
 end)
 
-PIXEL.RegisterFontUnscaled("ItemLab.NoIngredients", "Open Sans Bold", 30)
-PIXEL.RegisterFontUnscaled("ItemLab.SlotName", "Open Sans Bold", 22)
-PIXEL.RegisterFontUnscaled("ItemLab.SlotDescription", "Open Sans SemiBold", 21)
-PIXEL.RegisterFontUnscaled("ItemLab.CraftButton", "Open Sans Bold", 28)
-PIXEL.RegisterFontUnscaled("ItemLab.CraftProgress", "Open Sans Bold", 32)
+PIXEL.RegisterFont("ItemLab.NoIngredients", "Open Sans Bold", 30)
+PIXEL.RegisterFont("ItemLab.SlotName", "Open Sans Bold", 22)
+PIXEL.RegisterFont("ItemLab.SlotDescription", "Open Sans SemiBold", 21)
+PIXEL.RegisterFont("ItemLab.CraftButton", "Open Sans Bold", 28)
+PIXEL.RegisterFont("ItemLab.CraftProgress", "Open Sans Bold", 32)
 
 function PIXEL.ItemLab.OpenUI(lab, oldFrame)
     if IsValid(PIXEL.ItemLab.UI) and not oldFrame then return end
