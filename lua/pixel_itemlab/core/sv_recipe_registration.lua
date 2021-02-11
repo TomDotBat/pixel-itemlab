@@ -2,7 +2,6 @@
 PIXEL.ItemLab.Recipes = PIXEL.ItemLab.Recipes or {}
 
 function PIXEL.ItemLab.Recipe(item, craftTimeMin, craftTimeMax, successRate, ...)
-    if not PIXEL.ItemLab.Items[item] then return end
 
     local ingredientIds = {...}
     if not ingredientIds then return end
