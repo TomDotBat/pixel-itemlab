@@ -1,7 +1,8 @@
 
 PIXEL.ItemLab.Recipes = PIXEL.ItemLab.Recipes or {}
 
-function PIXEL.ItemLab.Recipe(item, craftTimeMin, craftTimeMax, successRate, ...)
+function PIXEL.ItemLab.Recipe(item, craftTimeMin, craftTimeMax, successRate, customCheck, ...)
+    if not PIXEL.ItemLab.Items[item] then return end
 
     local ingredientIds = {...}
     if not ingredientIds then return end
@@ -21,7 +22,8 @@ function PIXEL.ItemLab.Recipe(item, craftTimeMin, craftTimeMax, successRate, ...
         id = id,
         item = item,
         craftTime = {craftTimeMin, craftTimeMax},
-        successRate = successRate or 1
+        successRate = successRate or 1,
+        customCheck = customCheck
     }
 
     PIXEL.ItemLab.Recipes[id] = recipe

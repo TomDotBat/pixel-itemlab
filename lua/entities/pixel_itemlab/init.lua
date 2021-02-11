@@ -127,6 +127,7 @@ net.Receive("PIXEL.ItemLab.StartCrafting", function(len, ply)
 
     local ingredientIds = table.Copy(lab:GetIngredientIDs())
     table.sort(ingredientIds)
+
     local selectedRecipe = PIXEL.ItemLab.Recipes[table.concat(ingredientIds, ".")]
 
     local craftTime
@@ -156,15 +157,19 @@ net.Receive("PIXEL.ItemLab.StartCrafting", function(len, ply)
         finishSound:SetSoundLevel(70)
         finishSound:Play()
 
-        if not PIXEL.ItemLab.Items[selectedRecipe.item] then 
-            local ent = lab:DropItem(selectedRecipe.item or "crap")
+        local ent
+        if selectedRecipe.customCheck and not selectedRecipe.customCheck(ply) then
+            ent = lab:DropItem("pixel_itemlab_item_crap")
+        elseif not PIXEL.ItemLab.Items[selectedRecipe.item] then
+            ent = lab:DropItem(selectedRecipe.item or "pixel_itemlab_item_crap")
         else
-            local ent = lab:DropItem("pixel_itemlab_item_" .. (selectedRecipe and selectedRecipe.item or "crap"))
-        end  
-        if ent.Setowning_ent then ent:Setowning_ent(ply) end
-        if not isfunction(ent.ItemLabOnCraft) then return end
+            ent = lab:DropItem("pixel_itemlab_item_" .. (selectedRecipe and selectedRecipe.item or "crap"))
+        end
 
-        item.ItemLabOnCraft(ent, lab, lab:CPPIGetOwner())
+        if ent.Setowning_ent then ent:Setowning_ent(ply) end
+
+        if not isfunction(ent.ItemLabOnCraft) then return end
+        ent.ItemLabOnCraft(ent, lab, lab:CPPIGetOwner())
     end)
 end)
 
