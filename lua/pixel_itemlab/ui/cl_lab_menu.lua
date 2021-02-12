@@ -31,7 +31,7 @@ function PIXEL.ItemLab.OpenUI(lab, oldFrame)
         frame.PaintOver = nil
     end
 
-    frame:SetTitle(lab:CPPIGetOwner():Name() .. "'s Item Lab")
+    frame:SetTitle("Item Lab")
 
     PIXEL.ItemLab.UI = frame
     function frame:OnClose()
