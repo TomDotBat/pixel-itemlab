@@ -109,6 +109,13 @@ PIXEL.ItemLab.Item("armor50", "Armour Battery", "models/Items/car_battery01.mdl"
     end
 })
 
+PIXEL.ItemLab.Item("fadedoorbomb", "Fading Door Bomb", "models/props_junk/PropaneCanister001a.mdl", 1, nil, {
+    Use = function(self, ply)
+
+        SafeRemoveEntity(self)
+    end
+})
+
 local meta = FindMetaTable("Player")
 
 function meta:CanUseItemLab(entity)
