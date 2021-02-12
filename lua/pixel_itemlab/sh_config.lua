@@ -126,11 +126,9 @@ end
 
 PIXEL.ItemLab.Item("fadedoorbomb", "Fading Door Bomb", "models/props_junk/PropaneCanister001a.mdl", 1, nil, {
     Use = function(self, ply)
-        for k, ent in pairs(ents.FindInSphere(self:GetPos(), 400)) do
-            print("Found ent " .. ent:GetClass())
+        for k, ent in pairs(ents.FindInSphere(self:GetPos(), 150)) do
             if ent.isFadingDoor and ent.fadeActivate and not ent.fadeActive then
                 ent:fadeActivate();
-                print("ent " .. ent:GetClass() .. " is a fading door!")
                 if IsFirstTimePredicted() then
                     timer.Simple(5, function()
                         if IsValid(ent) and ent.fadeActive then
