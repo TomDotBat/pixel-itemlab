@@ -158,7 +158,7 @@ net.Receive("PIXEL.ItemLab.StartCrafting", function(len, ply)
         finishSound:Play()
 
         local ent
-        if selectedRecipe.customCheck and not selectedRecipe.customCheck(ply) then
+        if not selectedRecipe or selectedRecipe.customCheck and not selectedRecipe.customCheck(ply) then
             ent = lab:DropItem("pixel_itemlab_item_crap")
         elseif not PIXEL.ItemLab.Items[selectedRecipe.item] then
             ent = lab:DropItem(selectedRecipe.item or "pixel_itemlab_item_crap")
