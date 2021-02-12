@@ -109,8 +109,42 @@ PIXEL.ItemLab.Item("armor50", "Armour Battery", "models/Items/car_battery01.mdl"
     end
 })
 
+local function findFadingDoorsInSphere(pos, radius)
+    if not (bKeypads and bKeypads.FadingDoors and istable(bKeypads.FadingDoors.Links)) then return end
+
+    local results = {}
+    radius = radius ^ 2
+
+    for _, ent in ipairs(bKeypads.FadingDoors.Links) do
+        if ent:GetPos():DistToSqr(pos) > radius then continue end
+        if not bKeypads.FadingDoors:IsFadingDoor(ent) then continue end
+        table.insert(results, ent)
+    end
+
+    return results
+end
+
 PIXEL.ItemLab.Item("fadedoorbomb", "Fading Door Bomb", "models/props_junk/PropaneCanister001a.mdl", 1, nil, {
     Use = function(self, ply)
+        for k, v in ipairs(findFadingDoorsInSphere(self:GetPos(), 800)) do
+            if ent.isFadingDoor and ent.fadeActivate and not ent.fadeActive then
+                ent:fadeActivate();
+                if IsFirstTimePredicted() then
+                    timer.Simple(5, function()
+                        if IsValid(ent) and ent.fadeActive then
+                            ent:fadeDeactivate();
+                        end
+                    end)
+                end
+            end
+        end
+
+        local vPoint = self:GetPos();
+        local effectdata = EffectData();
+        effectdata:SetStart(vPoint);
+        effectdata:SetOrigin(vPoint);
+        effectdata:SetScale(1);
+        util.Effect("Explosion", effectdata, true, true);
 
         SafeRemoveEntity(self)
     end
