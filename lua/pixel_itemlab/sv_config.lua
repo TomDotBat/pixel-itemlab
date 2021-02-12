@@ -3,9 +3,9 @@ PIXEL.ItemLab.Config.FailedCraftTime = {10, 300}
 //PIXEL.CustomChecks.VIP,
 --item id, craftTimeMin, craftTimeMax, successRate (0-1), ingredient id 1, ingredient id 2, ingredient id 3
 
-PIXEL.ItemLab.Recipe("health25", 30, 50, 1, nil, "melon", "energydrink", "spine")
+PIXEL.ItemLab.Recipe("health25", 30, 50, 1, nil, "melon", "energydrink", "baby")
 PIXEL.ItemLab.Recipe("health50", 30, 50, 1, nil, "melon", "melon", "energydrink")
-PIXEL.ItemLab.Recipe("healthmax", 30, 50, 1, nil, "melon", "spine", "spine")
+PIXEL.ItemLab.Recipe("healthmax", 30, 50, 1, nil, "melon", "baby", "baby")
 
 PIXEL.ItemLab.Recipe("armor25", 30, 50, 1, nil, "pan", "pan", "cactus")
 PIXEL.ItemLab.Recipe("armor50", 30, 50, 1, nil, "pan", "pan", "pan")
