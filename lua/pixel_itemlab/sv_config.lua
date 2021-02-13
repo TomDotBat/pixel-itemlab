@@ -1,6 +1,6 @@
 
 PIXEL.ItemLab.Config.FailedCraftTime = {10, 300}
-//PIXEL.CustomChecks.VIP,
+
 --item id, craftTimeMin, craftTimeMax, successRate (0-1), ingredient id 1, ingredient id 2, ingredient id 3
 
 PIXEL.ItemLab.Recipe("health25", 30, 50, 1, nil, "melon", "energydrink", "baby")

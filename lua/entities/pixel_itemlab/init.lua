@@ -158,12 +158,16 @@ net.Receive("PIXEL.ItemLab.StartCrafting", function(len, ply)
         finishSound:Play()
 
         local ent
-        if not selectedRecipe or selectedRecipe.customCheck and not selectedRecipe.customCheck(ply) then
+        if not selectedRecipe then --Recipe wrong
             ent = lab:DropItem("pixel_itemlab_item_crap")
-        elseif not PIXEL.ItemLab.Items[selectedRecipe.item] then
-            ent = lab:DropItem(selectedRecipe.item or "pixel_itemlab_item_crap")
         else
-            ent = lab:DropItem("pixel_itemlab_item_" .. (selectedRecipe and selectedRecipe.item or "crap"))
+            if selectedRecipe.customCheck and not selectedRecipe.customCheck(ply) then --Doesn't meet customcheck
+                ent = lab:DropItem("pixel_itemlab_item_crap")
+            elseif selectedRecipe.item and not PIXEL.ItemLab.Items[selectedRecipe.item] then --Item is a custom entity
+                ent = lab:DropItem(selectedRecipe.item or "pixel_itemlab_item_crap")
+            else
+                ent = lab:DropItem("pixel_itemlab_item_" .. (selectedRecipe.item or "crap"))
+            end
         end
 
         if ent.Setowning_ent then ent:Setowning_ent(ply) end
