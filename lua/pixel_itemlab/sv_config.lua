@@ -13,7 +13,7 @@ PIXEL.ItemLab.Recipe("armor50", 30, 50, 1, nil, "pan", "pan", "pan")
 PIXEL.ItemLab.Recipe("pixel_armour_charger", 45, 100, 1, nil, "sign", "sign", "pan")
 PIXEL.ItemLab.Recipe("pixel_health_charger", 45, 100, 1, nil, "sign", "sign", "melon")
 
-PIXEL.ItemLab.Recipe("fadedoorbomb", 5, 5, 1, nil, "briefcase", "briefcase", "vibrator")
+PIXEL.ItemLab.Recipe("fadedoorbomb", 180, 300, 1, nil, "briefcase", "briefcase", "vibrator")
 
 PIXEL.ItemLab.Recipe("pixel_armour_vip_charger", 45, 100, 1, PIXEL.CustomChecks.VIP, "sign", "pan", "pan")
 PIXEL.ItemLab.Recipe("pixel_health_vip_charger", 45, 100, 1, PIXEL.CustomChecks.VIP, "sign", "melon", "melon")
