@@ -167,3 +167,18 @@ function meta:CanUseItemLab(entity)
 
     return false]]--
 end
+
+PIXEL.ItemLab.Item("fbiopenup", "FBI Open Up", "models/props_junk/PopCan01a.mdl", 1, function(item, lab, owner)
+    local effectdata = EffectData()
+    effectdata:SetOrigin(item:GetPos())
+    util.Effect("HelicopterMegaBomb", effectdata)
+
+    util.ScreenShake(item:GetPos(), 5, 8, 3, 500)
+    item:EmitSound("BaseExplosionEffect.Sound")
+
+    if IsValid(owner) and owner:IsPlayer() then
+        owner:wanted(nil, "Experimenting with the wrong things...")
+    end
+
+    SafeRemoveEntity(item)
+end)
