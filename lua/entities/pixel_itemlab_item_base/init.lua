@@ -13,10 +13,6 @@ function ENT:Initialize()
 
     self:SetModelScale(self.ItemLabScale)
 
-    if isfunction(self.ItemLabOnCraft) then
-        self:ItemLabOnCraft()
-    end
-
     local physObj = self:GetPhysicsObject()
     if not physObj:IsValid() then return end
     physObj:Wake()
