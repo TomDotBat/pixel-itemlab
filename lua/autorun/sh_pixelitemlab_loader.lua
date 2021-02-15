@@ -26,6 +26,13 @@ end
 
 local function loadAddon()
     loadDirectory("pixel_itemlab")
+
+    if CLIENT then return end
+
+    hook.Add("PlayerInitialSpawn", "PIXEL.ItemLab.RegisterItems", function(ply)
+        hook.Remove("PlayerInitialSpawn", "PIXEL.ItemLab.RegisterItems")
+        loadDirectory("pixel_itemlab")
+    end)
 end
 
 if PIXEL.UI then
