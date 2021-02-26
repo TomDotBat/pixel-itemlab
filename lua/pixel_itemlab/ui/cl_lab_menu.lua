@@ -171,7 +171,7 @@ function PIXEL.ItemLab.OpenUI(lab, oldFrame)
 
     local craftButton = vgui.Create("PIXEL.TextButton", frame)
     craftButton:SetText("Craft")
-    craftButton:SetFont("PIXEL.ItemLab.CraftButton")
+    craftButton:SetFont("ItemLab.CraftButton")
 
     function craftButton:DoClick()
         net.Start("PIXEL.ItemLab.StartCrafting")
