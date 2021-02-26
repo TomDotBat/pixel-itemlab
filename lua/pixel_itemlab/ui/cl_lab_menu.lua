@@ -59,7 +59,7 @@ function PIXEL.ItemLab.OpenUI(lab, oldFrame)
 
         function frame:PaintOver(w, h)
             local headerH = PIXEL.Scale(30)
-            PIXEL.DrawSimpleText("No ingredients, add one to start crafting.", "PIXEL.ItemLab.NoIngredients", w * .5, headerH + (h - headerH) * .5, PIXEL.Colors.PrimaryText, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+            PIXEL.DrawSimpleText("No ingredients, add one to start crafting.", "ItemLab.NoIngredients", w * .5, headerH + (h - headerH) * .5, PIXEL.Colors.PrimaryText, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
         end
 
         return
@@ -108,8 +108,8 @@ function PIXEL.ItemLab.OpenUI(lab, oldFrame)
             PIXEL.DrawRoundedBox(PIXEL.Scale(4), 0, 0, w, h, slotCol)
 
             local textX = w * .5
-            PIXEL.DrawSimpleText("Slot #" .. i, "PIXEL.ItemLab.SlotName", textX, PIXEL.Scale(10), PIXEL.Colors.PrimaryText, TEXT_ALIGN_CENTER)
-            PIXEL.DrawText(ingredient.ItemLabName or "Slot Empty", "PIXEL.ItemLab.SlotDescription", textX, w + PIXEL.Scale(10), PIXEL.Colors.SecondaryText, TEXT_ALIGN_CENTER)
+            PIXEL.DrawSimpleText("Slot #" .. i, "ItemLab.SlotName", textX, PIXEL.Scale(10), PIXEL.Colors.PrimaryText, TEXT_ALIGN_CENTER)
+            PIXEL.DrawText(ingredient.ItemLabName or "Slot Empty", "ItemLab.SlotDescription", textX, w + PIXEL.Scale(10), PIXEL.Colors.SecondaryText, TEXT_ALIGN_CENTER)
         end
 
         function pnl:PerformLayout(w, h)
@@ -152,7 +152,7 @@ function PIXEL.ItemLab.OpenUI(lab, oldFrame)
             local pad = PIXEL.Scale(4)
             local dblPad = pad * 2
             PIXEL.DrawRoundedBox(PIXEL.Scale(4), pad, pad, (w - dblPad) * craftProg, h - dblPad, PIXEL.Colors.Primary)
-            PIXEL.DrawSimpleText("Crafting - " .. math.Round(math.min(craftProg * 100, 100)) .. "% Complete", "PIXEL.ItemLab.CraftProgress", w * .5, h * .5, PIXEL.Colors.PrimaryText, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
+            PIXEL.DrawSimpleText("Crafting - " .. math.Round(math.min(craftProg * 100, 100)) .. "% Complete", "ItemLab.CraftProgress", w * .5, h * .5, PIXEL.Colors.PrimaryText, TEXT_ALIGN_CENTER, TEXT_ALIGN_CENTER)
         end
 
         function frame:LayoutContent(w, h)
