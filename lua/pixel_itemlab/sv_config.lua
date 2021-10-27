@@ -1,4 +1,18 @@
 
+--[[
+    PIXEL Item Lab
+    Copyright (C) 2021 Tom O'Sullivan (Tom.bat)
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License.
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+]]
+
 PIXEL.ItemLab.Config.FailedCraftTime = {10, 300}
 
 --item id, craftTimeMin, craftTimeMax, successRate (0-1), customCheck, ingredient id 1, ingredient id 2, ingredient id 3
@@ -10,16 +24,7 @@ PIXEL.ItemLab.Recipe("healthmax", 60, 100, 1, nil, "melon", "baby", "baby")
 PIXEL.ItemLab.Recipe("armor25", 30, 50, 1, nil, "pan", "pan", "cactus")
 PIXEL.ItemLab.Recipe("armor50", 45, 100, 1, nil, "pan", "pan", "pan")
 
-PIXEL.ItemLab.Recipe("pixel_armour_charger", 45, 100, 1, nil, "hook", "hook", "pan")
-PIXEL.ItemLab.Recipe("pixel_health_charger", 45, 100, 1, nil, "hook", "hook", "melon")
-
 PIXEL.ItemLab.Recipe("fadedoorbomb", 180, 300, 1, nil, "briefcase", "briefcase", "vibrator")
-
-PIXEL.ItemLab.Recipe("pixel_armour_vip_charger", 45, 100, 1, PIXEL.CustomChecks.VIP, "hook", "pan", "pan")
-PIXEL.ItemLab.Recipe("pixel_health_vip_charger", 45, 100, 1, PIXEL.CustomChecks.VIP, "hook", "melon", "melon")
-PIXEL.ItemLab.Recipe("pixel_money_charger", 45, 100, 1, PIXEL.CustomChecks.VIP, "hook", "hook", "huladoll")
-
-PIXEL.ItemLab.Recipe("pixel_reverse_money_charger", 45, 100, 1, PIXEL.CustomChecks.VIPPlus, "hook", "huladoll", "huladoll")
 
 PIXEL.ItemLab.Recipe("fbiopenup", 30, 50, 1, nil, "baby")
 PIXEL.ItemLab.Recipe("fbiopenup", 30, 50, 1, nil, "briefcase", "vibrator", "baby")
